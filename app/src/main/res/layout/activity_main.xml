@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+        <TextView
+            android:layout_marginTop="15dp"
+            android:id="@+id/keyword_label"
+            android:layout_width="match_parent"
+            android:textColor="@color/app_blue_eBay"
+            android:layout_height="wrap_content"
+            android:text="Keyword"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/keyword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/keywordPlaceholder"
+            android:layout_marginEnd="30dp"
+            android:layout_below="@id/keyword_label"/>
+
+        <TextView
+            android:id="@+id/keyword_error"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/keyword"
+            android:textColor="@color/error_color"
+            android:layout_height="wrap_content"
+            android:text="Please enter mandatory field"
+            android:textStyle="italic"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:layout_marginTop="7dp"
+            android:id="@+id/price_label"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/keyword_error"
+            android:textColor="@color/app_blue_eBay"
+            android:layout_height="wrap_content"
+            android:text="Price Range"
+            android:textStyle="bold"/>
+
+        <RelativeLayout
+            android:id="@+id/price_layout"
+            android:layout_below="@+id/price_label"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/min_price"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="@string/minPricePlaceholder" />
+            <EditText
+                android:id="@+id/max_price"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/maxPricePlaceholder"
+                android:inputType="number"
+                android:layout_marginStart="30dp"
+                android:layout_toEndOf="@+id/min_price"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/price_error"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/price_layout"
+            android:textColor="@color/error_color"
+            android:layout_height="wrap_content"
+            android:text="Please enter valid price values"
+            android:textStyle="italic"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/condition_label"
+            android:layout_width="match_parent"
+            android:textColor="@color/app_blue_eBay"
+            android:layout_height="wrap_content"
+            android:text="Condition"
+            android:layout_below="@+id/price_error"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:id="@+id/conditions"
+            android:layout_below="@+id/condition_label"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp">
+
+            <CheckBox
+                android:id="@+id/newCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/newLabel"
+                android:width="0dp"
+                android:layout_weight="1"
+                android:textStyle="italic"/>
+            <CheckBox
+                android:id="@+id/usedCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/usedLabel"
+                android:layout_toRightOf="@+id/newCheckBox"
+                android:width="0dp"
+                android:layout_weight="1"
+                android:textStyle="italic"/>
+            <CheckBox
+                android:id="@+id/unspecifiedCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/unspecifiedLabel"
+                android:width="0dp"
+                android:layout_weight="1"
+                android:layout_toRightOf="@+id/usedCheckBox"
+                android:textStyle="italic"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/sortby_label"
+            android:layout_width="match_parent"
+            android:textColor="@color/app_blue_eBay"
+            android:layout_height="wrap_content"
+            android:text="Sort By"
+            android:layout_below="@+id/conditions"
+            android:textStyle="bold"/>
+
+        <Spinner
+            android:id="@+id/sortby"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawSelectorOnTop="true"
+            android:entries="@array/sortByOptions"
+            android:layout_below="@+id/sortby_label"
+            android:spinnerMode="dropdown"
+            android:layout_marginEnd="30dp"/>
+
+        <LinearLayout
+            android:id="@+id/buttons_layout"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/sortby"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/search_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Search"
+                android:textColor="@color/white"
+                android:width="0dp"
+                android:layout_weight="1"
+                android:background="@color/app_blue_eBay"/>
+            <Button
+                android:id="@+id/clear_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Clear"
+                android:textColor="@color/white"
+                android:width="0dp"
+                android:layout_marginStart="20dp"
+                android:layout_weight="1"
+                android:background="@color/app_blue_eBay"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>
